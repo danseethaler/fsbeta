@@ -13,7 +13,7 @@
         <button type="button" name="login" class="btn" spinner clicked="run()" ng-hide="loggedIn">Get Started</button>
     </header>
 
-    <header ng-show="loggedIn">
+    <header ng-show="loggedIn" ng-cloak>
         <h1 ng-show="activeUser.displayName">Welcome {[{activeUser.displayName}]}</h1>
         <p ng-hide="persons"> Your ancestrial records are being prepared. </p>
         <p ng-show="persons"> Your ancestrial records have been retrieved. </p>
