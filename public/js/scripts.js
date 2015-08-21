@@ -32,7 +32,7 @@ angular.module('app', [])
 				$scope.activeUser.displayName = response.users[0].displayName;
 
 				fsClient.getAncestry(response.getUser().personId, {
-					generations: 6,
+					generations: 3,
 					personDetails: true,
 					marriageDetails: false
 				}).then(function (response) {

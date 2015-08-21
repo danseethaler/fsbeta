@@ -4,15 +4,21 @@
 
 <div class="intro col-md-10 col-md-offset-1">
 
-    <h1 ng-show="activeUser.displayName">Welcome {[{activeUser.displayName}]}</h1>
-    <h1>Your ancestral records are available.</h1>
-    <h3>
-        <em>Let's use them to get to know your ancestors.</em>
-    </h3>
-    <p> Let's login to familysearch.org below to get started.</p>
-    <button type="button" name="login" class="btn" spinner clicked="run()" ng-hide="loggedIn">Get Started</button>
+    <header ng-hide="loggedIn">
+        <h1>Your ancestral records are available.</h1>
+        <h3>
+            <em>Let's use them to get to know your ancestors.</em>
+        </h3>
+        <p> Let's login to familysearch.org below to get started.</p>
+        <button type="button" name="login" class="btn" spinner clicked="run()" ng-hide="loggedIn">Get Started</button>
+    </header>
 
-    <hr ng-if="persons">
+    <header ng-show="loggedIn">
+        <h1 ng-show="activeUser.displayName">Welcome {[{activeUser.displayName}]}</h1>
+        <p ng-hide="persons"> Your ancestrial records are being prepared. </p>
+        <p ng-show="persons"> Your ancestrial records have been retrieved. </p>
+        <hr>
+    </header>
 
     <div class="ancestors">
         <div class="list-group" ng-repeat="person in persons | orderBy:'ascendancyNumber'">
