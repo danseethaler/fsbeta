@@ -20,7 +20,7 @@
         <hr>
     </header>
 
-    <div class="ancestors">
+    <div class="ancestors" ng-cloak>
         <div class="list-group" ng-repeat="person in persons | orderBy:'ascendancyNumber'">
             <div class="list-group">
                 <a ng-class="person.gender === 'Male' ? 'list-group-item-info' : 'list-group-item-danger'" class="list-group-item active capitalized">
