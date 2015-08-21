@@ -12,7 +12,7 @@ angular.module('app', [])
 			var fsClient = new FamilySearch({
 				client_id: 'a02j0000007rShWAAU',
 				environment: 'beta',
-				redirect_uri: 'http://localhost:8888/',
+				redirect_uri: 'http://i.knowmyancestors.com/',
 				http_function: $http,
 				deferred_function: $q.defer,
 				timeout_function: $timeout,
