@@ -80,7 +80,7 @@ angular.module('app')
             var returnObj = {relation: relation}
 
             if (aNum > 7) {
-                var shortRelation = "[" + GreatCount.toString() + OrdSuffix + " great-" + Gender + "]";
+                var shortRelation = GreatCount.toString() + OrdSuffix + " great-" + Gender;
                 returnObj.shortRelation = shortRelation;
             }
 

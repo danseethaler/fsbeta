@@ -10,15 +10,39 @@
             <em>Let's use them to get to know your ancestors.</em>
         </h3>
         <p> Let's login to familysearch.org below to get started.</p>
-        <button type="button" name="login" class="btn" spinner clicked="run()" ng-hide="loggedIn">Get Started</button>
+        <button type="button" name="login" class="btn" spinner clicked="login()" ng-hide="loggedIn">Get Started</button>
     </header>
 
     <header ng-show="loggedIn" ng-cloak>
-        <h1 ng-show="activeUser.displayName">Welcome {[{activeUser.displayName}]}</h1>
-        <p ng-hide="persons"> Your ancestrial records are being prepared. </p>
+        <h1 ng-show="activeUser.displayName">Welcome {[{activeUser.displayName}]}
+            <span style="float: right; cursor: pointer; font-size: 11pt;" ng-click="logout()">Logout</span>
+        </h1>
+        <p ng-if="nextStep === 'retrieving'"> Your ancestrial records are being prepared. </p>
         <p ng-show="persons"> Your ancestrial records have been retrieved. </p>
         <hr>
     </header>
+
+    <div class="getAncestors" ng-if="nextStep === 'getAncestors'" ng-cloak>
+
+        <div class="dropdown" ng-show="basePersons">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Base Person
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a ng-model="baseId" ng-repeat="base in basePersons" ng-click="setBase(base.id)">{[{base.name}]} - {[{ base.id }]}<span class="badge">{[{base.aNum}]}</span></a></li>
+            </ul>
+        </div><br>
+
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">How many generations would you like to get?</span>
+            <input type="text" class="form-control" placeholder="Number between 1 and 6" aria-describedby="sizing-addon1" ng-model="userInputs.generations">
+        </div>
+        <div>
+            <br>
+            <input class="btn" type="button" name="name" ng-click="getAncestors()" value="Retrieve Ancestors">
+        </div>
+    </div>
 
     <div class="ancestors" ng-cloak>
         <div class="list-group" ng-repeat="person in persons | orderBy:'ascendancyNumber'">
