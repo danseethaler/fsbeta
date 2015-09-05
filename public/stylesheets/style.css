@@ -18,6 +18,34 @@ a {
     margin-bottom: 10px;
 }
 
+.chart{
+    text-align: center;
+}
+#chart {
+    /*background-color: #E5EBF3;*/
+    /*border: 1px solid #63B0F2;*/
+	margin-top: 20px;
+}
+.bar {
+	/*fill: #404040;*/
+	shape-rendering: crispEdges;
+}
+.bar-label {
+	text-anchor: end;
+	fill: white;
+	text-transform: capitalize;
+}
+.axis path,
+.axis line{
+	shape-rendering: crispEdges;
+    fill: none;
+	stroke: #000;
+}
+.axis{
+	text-transform: capitalize;
+}
+
+
 /* Extra small devices (phones, less than 768px) */
 
 

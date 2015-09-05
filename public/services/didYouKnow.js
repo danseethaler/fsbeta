@@ -32,6 +32,7 @@ angular.module('app')
 
                     // Running the birthday checker code
 					if (options.birthDate && thisPerson.birthDate) {
+						// console.log(thisPerson.birthDate);
 						if (thisPerson.birthDate.split(/ /g)[0].length === 1) {
 							thisPerson.birthDate = '0' + thisPerson.birthDate;
 						}
